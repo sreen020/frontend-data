@@ -1,0 +1,65 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: #1e2539;
+  margin: 0px;
+  overflow: hidden;
+  height: 100%;
+}
+
+/* Aside */
+aside {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 25rem;
+  background: #303956;
+  padding: 3rem;
+}
+
+aside h1 {
+  font-family: 'Roboto', sans-serif;
+  color: #ececec;
+
+}
+
+
+/* Map */
+svg {
+  height: 100%;
+}
+
+path {
+  fill: #272e48;
+  stroke: #2e5f74;
+  stroke-opacity: 0.2;
+}
+
+path:hover {
+  fill: #5e87f4;
+}
+
+.sphere {
+  fill: lightblue;
+}
+
+svg g {
+  width: 600%;
+  height: 600%;
+}
+
+circle {
+  r: 1%;
+  fill: #69b3a2;
+  /* stroke: #69b3a2;
+  stroke-width: 3px; */
+  fill-opacity: 0.3;
+}
