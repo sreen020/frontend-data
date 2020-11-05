@@ -64,7 +64,15 @@ export const zoommFunction = nlData().then((data) => {
 
   function zoomed(event) {
     const { transform } = event;
+
     g.attr("transform", transform);
     g.attr("stroke-width", 1 / transform.k);
+
+    console.log("werkt");
+    console.log(transform.k);
+
+    svg.select("g").selectAll("circle")
+      .attr("r", 3 /transform.k);
   }
 });
+

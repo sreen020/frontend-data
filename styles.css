@@ -57,9 +57,12 @@ svg g {
 }
 
 circle {
-  r: 1%;
+  /* r: 3; */
   fill: #69b3a2;
-  /* stroke: #69b3a2;
-  stroke-width: 3px; */
   fill-opacity: 0.3;
+}
+
+.tooltip {
+  width: 10rem;
+  height: 10rem;
 }

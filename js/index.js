@@ -8,8 +8,9 @@ import {
 } from "./modules/sellingpoint.js";
 
 // Fetching RDW Data
-const endPoint = "https://opendata.rdw.nl/resource/cgqw-pfbp.json";
+// const endPoint = "https://opendata.rdw.nl/resource/cgqw-pfbp.json";
 // const endPoint = "https://opendata.rdw.nl/resource/cgqw-pfbp.json?$limit=100000";
+const endPoint = "https://opendata.rdw.nl/resource/cgqw-pfbp.json?$limit=100";
 getData(endPoint);
 
 // Makes the connection with the api endpoint

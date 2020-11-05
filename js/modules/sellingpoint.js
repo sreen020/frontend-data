@@ -9,6 +9,7 @@ export function showSellingpoint(data) {
   data.forEach((dataRow) => {
     const long = dataRow.location.longitude;
     const lat = dataRow.location.latitude;
+  
 
     g.append("circle")
       .attr("cx", function () { return projection([long, lat])[0] })
@@ -19,21 +20,27 @@ export function showSellingpoint(data) {
 
     // create a tooltip
     var Tooltip = d3.select("svg")
-    .append("div")
-    .attr("class", "tooltip")
-    .style("opacity", 1)
-    .style("background-color", "white")
+      .append("div")
+      .attr("class", "tooltip")
+      .style("opacity", 1)
+      .style("background-color", "white")
+    .append("p")
+      .attr("class", "test")
+      .text(dataRow.sellingpointdesc)
 
-    var mouseover = function(data) {
+    var mouseover = function(dataRow) {
+      console.log("mouseover");
       Tooltip.style("opacity", 1)
     }
-    var mousemove = function(data) {
+    var mousemove = function(dataRow) {
+      console.log("mousemove");
+      
       Tooltip
-        .html("aaa")
         .style("left", (d3.mouse(this)[0]+10) + "px")
         .style("top", (d3.mouse(this)[1]) + "px")
     }
-    var mouseleave = function(data) {
+    var mouseleave = function(dataRow) {
+      console.log("mouseleave");
       Tooltip.style("opacity", 0)
     }
   })
