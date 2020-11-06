@@ -10,7 +10,7 @@ import {
 // Fetching RDW Data
 // const endPoint = "https://opendata.rdw.nl/resource/cgqw-pfbp.json";
 // const endPoint = "https://opendata.rdw.nl/resource/cgqw-pfbp.json?$limit=100000";
-const endPoint = "https://opendata.rdw.nl/resource/cgqw-pfbp.json?$limit=100";
+const endPoint = "https://opendata.rdw.nl/resource/cgqw-pfbp.json?$limit=300";
 getData(endPoint);
 
 // Makes the connection with the api endpoint

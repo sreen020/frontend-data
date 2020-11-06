@@ -10,8 +10,8 @@ export function showSellingpoint(data) {
     const long = dataRow.location.longitude;
     const lat = dataRow.location.latitude;
   
-
     g.append("circle")
+      .attr("r", 3)
       .attr("cx", function () { return projection([long, lat])[0] })
       .attr("cy", function () { return projection([long, lat])[1] })
       .on("mouseover", mouseover)
@@ -34,7 +34,7 @@ export function showSellingpoint(data) {
     }
     var mousemove = function(dataRow) {
       console.log("mousemove");
-      
+
       Tooltip
         .style("left", (d3.mouse(this)[0]+10) + "px")
         .style("top", (d3.mouse(this)[1]) + "px")
