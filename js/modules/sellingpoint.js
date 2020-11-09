@@ -15,36 +15,37 @@ export function showSellingpoint(data) {
       .attr("cx", function () { return projection([long, lat])[0] })
       .attr("cy", function () { return projection([long, lat])[1] })
       .on("mouseover", mouseover)
-      .on("mousemove", mousemove)
       .on("mouseleave", mouseleave)
+    .append("title")
+      .text(dataRow.sellingpointdesc)
+
 
     // create a tooltip
     var Tooltip = d3.select("svg")
-      .append("div")
-      .attr("class", "tooltip")
-      .style("opacity", 1)
-      .style("background-color", "white")
-    .append("p")
-      .attr("class", "test")
-      .text(dataRow.sellingpointdesc)
+      .append("foreignObject")
+        .attr("class", "tooltip")
+        .style("opacity", 1)
+        .html(dataRow.sellingpointdesc)
+        .attr("cx", function () { return projection([long, lat])[0] })
+        .attr("cy", function () { return projection([long, lat])[1] })
 
-    var mouseover = function(dataRow) {
-      console.log("mouseover");
-      Tooltip.style("opacity", 1)
-    }
-    var mousemove = function(dataRow) {
-      console.log("mousemove");
+      function mouseover(d) {
+        console.log("mouseOver");
+        let mouseCoordX = d.pageX;
+        let mouseCoordY = d.pageY;
+        Tooltip.style("opacity", 1)
 
-      Tooltip
-        .style("left", (d3.mouse(this)[0]+10) + "px")
-        .style("top", (d3.mouse(this)[1]) + "px")
-    }
-    var mouseleave = function(dataRow) {
-      console.log("mouseleave");
-      Tooltip.style("opacity", 0)
-    }
-  })
+        Tooltip
+          .style("left", mouseCoordX + "px")
+          .style("top", mouseCoordY + "px")
+      }
+    
+      function mouseleave(d) {
+        console.log("mouseleave");
+        Tooltip.style("opacity", 0)
+      }
   selectYear(data);
+})
 }
 
 
