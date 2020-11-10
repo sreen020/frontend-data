@@ -5,71 +5,44 @@ export function showSellingpoint(data) {
   const g = d3.select("g");
 
   var projection = d3.geoMercator().scale(6000).center([5.916667, 52.47]);
-
-  data.forEach((dataRow) => {
-    const long = dataRow.location.longitude;
-    const lat = dataRow.location.latitude;
   
-    g.append("circle")
+    g.selectAll("circle")
+    .data(data)
+    .enter()
+    .append("circle")
       .attr("r", 3)
-      .attr("cx", function () { return projection([long, lat])[0] })
-      .attr("cy", function () { return projection([long, lat])[1] })
-      .on("mouseover", mouseover)
-      .on("mouseleave", mouseleave)
-    .append("title")
-      .text(dataRow.sellingpointdesc)
-
+      .attr("cx", function(d) { return projection([d.location.longitude, d.location.latitude])[0] })
+      .attr("cy", function(d) { return projection([d.location.longitude, d.location.latitude])[1] })
+      .on("mouseover", mouseOver)
+      .on("mousemove", mouseMove)
+      .on("mouseout", mouseOut)
 
     // create a tooltip
-    var Tooltip = d3.select("svg")
-      .append("foreignObject")
-        .attr("class", "tooltip")
-        .style("opacity", 1)
-        .html(dataRow.sellingpointdesc)
-        .attr("cx", function () { return projection([long, lat])[0] })
-        .attr("cy", function () { return projection([long, lat])[1] })
+    const tooltip = d3.select('body')
+      .append('div')
+      .attr('class', 'tooltip')
+      .style('position', 'absolute')
+      .style('opacity', 1)
+      .style('z-index', '10')
 
-      function mouseover(d) {
-        console.log("mouseOver");
-        let mouseCoordX = d.pageX;
-        let mouseCoordY = d.pageY;
-        Tooltip.style("opacity", 1)
-
-        Tooltip
-          .style("left", mouseCoordX + "px")
-          .style("top", mouseCoordY + "px")
+      function mouseOver(d, i) {
+        tooltip
+          .append("p")
+            .text(i.sellingpointdesc)
+            .style("opacity", 1.0)
+            .attr("class", "title")
       }
-    
-      function mouseleave(d) {
-        console.log("mouseleave");
-        Tooltip.style("opacity", 0)
+
+      function mouseMove(event) {
+        tooltip
+          .style('top', (event.pageY-10)+'px')
+          .style('left',(event.pageX+10)+'px')
+          .style("opacity", 1.0)
       }
-  selectYear(data);
-})
+
+      function mouseOut(d, i) {
+        tooltip
+          .style("opacity", 0)
+          .selectAll("p").remove();
+      }
 }
-
-
-// deze functie moet selecteren uit welk jaar de getoonde punten komen
-function selectYear(data) {
-
-  data.forEach((dataRow) => {
-    const getYears = dataRow.startdatesellingpoint.slice(0, 4);
-    const getMonths = dataRow.startdatesellingpoint.slice(4, 6);
-    const getDays = dataRow.startdatesellingpoint.slice(6, 8);
-
-  })
-}
-// This function makes the date a readable format
-// export function cleanDates(dataRow) {
-//   const getYears = dataRow.startdatesellingpoint.slice(0, 4);
-//   const getMonths = dataRow.startdatesellingpoint.slice(4, 6);
-//   const getDays = dataRow.startdatesellingpoint.slice(6, 8);
-
-//   const date = `${getDays}-${getMonths}-${getYears}`;
-//   // console.log(date);
-
-//   // Count the amount of values after a specific year
-//   if (getYears > 2018) {
-//     // console.log("Aantal values boven 2018");
-//   }
-// }
