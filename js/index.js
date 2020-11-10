@@ -1,6 +1,6 @@
 // Zoom map on specific town
 import { zoommFunction } from "./modules/zoom.js";
-import { filterYear } from "./modules/filter.js";
+import { GetYearsArr } from "./modules/filter.js";
 // zoommFunction();
 
 // visualize sellingpoints on the map
@@ -19,5 +19,5 @@ async function getData(url) {
   const data = await res.json();
 
   showSellingpoint(data);
-  filterYear(data);
+  GetYearsArr(data);
 }
