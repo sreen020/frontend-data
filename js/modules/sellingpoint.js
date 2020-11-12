@@ -24,8 +24,6 @@ export function showSellingpoint(data) {
         .on("mouseover", mouseOver)
         .on("mousemove", mouseMove)
         .on("mouseout", mouseOut)
-        .transition()
-        .duration(2000)
 
     // removes circles for the filter options
     points.exit()
@@ -114,7 +112,7 @@ export function showSellingpoint(data) {
       .attr("for", (d,i) => filteredUniqueValues[i])
       .text((d,i) => filteredUniqueValues[i])
 
-    // i = the year being clicked. this function changes the point on the map for the chosen year
+    // i = the year being clicked. this function updates the points on the map with the point of the chosen year
     function changeYear(i) {
       const filteredYear = data.filter(row => row.startdatesellingpoint ? row.startdatesellingpoint.slice(0, 4) == i : null)
       setPoints(filteredYear);
