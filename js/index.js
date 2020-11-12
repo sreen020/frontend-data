@@ -1,6 +1,5 @@
 // Zoom map on specific town
-import { zoommFunction } from "./modules/mapAndZoom.js";
-// zoommFunction();
+import { zoomFunction } from "./modules/mapAndZoom.js";
 
 // visualize sellingpoints on the map
 import { showSellingpoint } from "./modules/sellingpoint.js";

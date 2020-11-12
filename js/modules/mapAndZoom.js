@@ -1,8 +1,9 @@
 // import data
-import nlData from "./nltopo.js";
+import nlData from "./dutchTopoData.js";
 
 // This function makes the map zoom on a specific area using d3.zoom
-export const zoommFunction = nlData().then((data) => {
+// data get fetched this function is a promise 
+export const zoomFunction = nlData().then((data) => {
 
   // making global d3 variables 
   const path = d3.geoPath();
