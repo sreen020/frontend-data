@@ -25,6 +25,11 @@ aside {
   padding: 3rem;
 }
 
+p, a {
+  font-family: 'Roboto', sans-serif;
+  color: #ececec;
+}
+
 aside h1 {
   font-family: 'Roboto', sans-serif;
   color: #ececec;
@@ -68,7 +73,7 @@ circle {
   background: #2e5e75;
   border-radius: 0.3rem;
   pointer-events: none;
-  color: #fff;
+  color: #ececec;
   font-size: 0.8rem;
 }
 
@@ -109,7 +114,7 @@ label {
   text-align: center;
   cursor: pointer;
   background: #1e2539;
-  color: #fff;
+  color: #ececec;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -121,7 +126,7 @@ label:hover {
   background: none;
   border: 3px solid #1e2539;
   padding: 0.6rem 3rem;
-  color: #fff;
+  color: #ececec;
   font-size: 0.9rem;
   cursor: pointer;
   transition: 0.2s;
@@ -133,7 +138,5 @@ label:hover {
 }
 
 .totalAmount {
-  padding-top: 2rem;
-  font-family: 'Roboto', sans-serif;
-  color: #ececec;
+  padding: 2rem 0 4rem;
 }

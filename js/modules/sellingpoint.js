@@ -12,12 +12,12 @@ export function showSellingpoint(data) {
 
   // This function places points on the map using lat and long
   function setPoints(data) {
-    const points = g.selectAll('circle').data(data)
+    const points = g.selectAll("circle").data(data)
     const totalAmount = d3.select(".totalAmount")
 
     // circle element is being created for each data object, with cx and cy attributes the circles are placed correctly
     points.enter()
-        .append('circle')
+        .append("circle")
         .attr("r", 3)
         .attr("cx", function(d) { return projection([d.location.longitude, d.location.latitude])[0] })
         .attr("cy", function(d) { return projection([d.location.longitude, d.location.latitude])[1] })
@@ -31,16 +31,16 @@ export function showSellingpoint(data) {
 
     // shows a text with the current amount of circles showed on the map
     totalAmount
-      .text("Aantal parkeerautomaten: " + data.length)
+      .text("Aantal getoonde parkeerautomaten: " + data.length)
   }
 
   // create the tooltip with styling
-  const tooltip = d3.select('body')
-    .append('div')
-    .attr('class', 'tooltip')
-    .style('position', 'absolute')
-    .style('z-index', '10')
-    .style('opacity', 1)
+  const tooltip = d3.select("body")
+    .append("div")
+    .attr("class", "tooltip")
+    .style("position", "absolute")
+    .style("z-index", "10")
+    .style("opacity", 1)
 
   // On mouseOver show tooltip and input tekst 
   function mouseOver(d, i) {
@@ -54,8 +54,8 @@ export function showSellingpoint(data) {
   // This function changes position of the tooltip to the specific point
   function mouseMove(event) {
     tooltip
-      .style('top', (event.pageY-10)+'px')
-      .style('left',(event.pageX+10)+'px')
+      .style("top", (event.pageY-10)+"px")
+      .style("left",(event.pageX+10)+"px")
       .style("opacity", 1.0)
   }
 
