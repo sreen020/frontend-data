@@ -1,15 +1,35 @@
 # functional-programming-rdw
  
+ ## Live demo
+<a href="https://sreen020.github.io/frontend-data/">URL</a>
+
+## Install
+
+Clone repo
+```js
+git clone git@github.com:sreen020/frontend-data.git
+```
+navigate in terminal to directory
+```js
+cd ../../../..
+```
+
+Start python server
+ ```js
+python -m SimpleHTTPServer 8000
+```
+
+Visit http://localhost:8000/ in your browser
+
 ## Onderzoeksvraag <br>
 **Hoofdvraag**<br>
-Amsterdam wilt steeds minder auto's in de stad hebben, heeft dit invloed op de aantal parkeerautomaten die er worden neergezet en weggehaald?
+Waar en hoeveel parkeerautomaten worden er jaarlijks in Nederland geplaatst?
 
 **Deelvragen en assumptie**<br>
 - komen er sommige jaren meer bij dan andere jaren? (Ik denk dat er ieder jaar meer bijkomen, zeker als we kijken naar de grotere steden)
 - Zijn er plaatsen waar de toename groter is dan andere plaatsen? (Ik denk dat de toename in grote steden en daar omheen fors toeneemt)
-- Moet ik hier het hele daar door betaald parkeren of alleen in bepaalde maanden? (In de voorbeeld datarijen zag ik veel colommen staan waar je een aantal maanden niet hoeft te betalen)
+- Moet ik hier het hele Jaar door betaald parkeren of alleen in bepaalde maanden? (In de voorbeeld datarijen zag ik veel colommen staan waar je een aantal maanden niet hoeft te betalen)
 - Waar en hoeveel parkeer parkeerautomaten komen er jaarlijks bij? 
-- Worden er ook parkeerautomaten weggehaald?
 
 extra - Zitten er overeenkomsten of een verschillen in de metaalmethode en de parkeerautomaten? (In de grote steden kan je meestal niet meer met cash betalen dus dit zal een verschil zijn.)
 
