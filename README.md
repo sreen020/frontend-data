@@ -2,7 +2,25 @@
  
  ## Live demo
 <a href="https://sreen020.github.io/frontend-data/">URL</a>
- 
+
+## Install
+
+Clone repo
+```js
+git clone git@github.com:sreen020/frontend-data.git
+```
+navigate in terminal to directory
+```js
+cd ../../../..
+```
+
+Start python server
+ ```js
+python -m SimpleHTTPServer 8000
+```
+
+Visit http://localhost:8000/ in your browser
+
 ## Onderzoeksvraag <br>
 **Hoofdvraag**<br>
 Waar en hoeveel parkeerautomaten worden er jaarlijks in Nederland geplaatst?
