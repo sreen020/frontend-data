@@ -11,8 +11,8 @@ export function showSellingpoint(data) {
       .append('div')
       .attr('class', 'tooltip')
       .style('position', 'absolute')
-      .style('opacity', 1)
       .style('z-index', '10')
+      .style('opacity', 1)
 
       function mouseOver(d, i) {
         tooltip
@@ -50,12 +50,19 @@ export function showSellingpoint(data) {
           .on("mouseover", mouseOver)
           .on("mousemove", mouseMove)
           .on("mouseout", mouseOut)
+          .transition()
+          .duration(2000)
 
       points.exit()
             .remove()
+
+      const totalAmount = d3.select(".totalAmount")
+
+      totalAmount
+        .text("Aantal parkeerautomaten: " + data.length)
       }
 
-        // array with all unfiltered years
+  // array with all unfiltered years
   const arrayWithAllYears = [];
 
   // The array above get filled with all years
@@ -71,8 +78,6 @@ export function showSellingpoint(data) {
   // Use the func above to filter out all the unique years
   const filteredUniqueValues = arrayWithAllYears.filter(makeArrUnique)
   filteredUniqueValues.sort(d3.ascending)
-  console.log(filteredUniqueValues);
-
 
   // Make a div inside form for each year
   const form = d3.select("form")

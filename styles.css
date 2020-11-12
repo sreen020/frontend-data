@@ -28,7 +28,6 @@ aside {
 aside h1 {
   font-family: 'Roboto', sans-serif;
   color: #ececec;
-
 }
 
 
@@ -88,11 +87,12 @@ form {
   display: flex;
   flex-wrap: wrap;
   margin-top: 3rem;
+  padding-bottom: 1rem;
 }
 
 .radioBtn {
   margin-right: 0.2rem;
-  margin-bottom: 1.4rem;
+  margin-bottom: 1.2rem;
 }
 
 label {
@@ -102,7 +102,6 @@ label {
   text-align: center;
   cursor: pointer;
   background: #1e2539;
-  border-radius: 0.6rem 0.6rem 0rem 0rem;
   color: #fff;
   font-family: 'Roboto', sans-serif;
 }
@@ -124,4 +123,10 @@ label:hover {
 .reset-button:hover {
   background: #1e2539;
   transition: 0.2s;
+}
+
+.totalAmount {
+  padding-top: 2rem;
+  font-family: 'Roboto', sans-serif;
+  color: #ececec;
 }

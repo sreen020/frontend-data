@@ -1,22 +1,29 @@
+// import data
 import nlData from "./nltopo.js";
 
+// This function makes the map zoom on a specific area using d3.zoom
 export const zoommFunction = nlData().then((data) => {
+
+  // making global d3 variables 
   const path = d3.geoPath();
   const zoom = d3.zoom().scaleExtent([1, 8]).on("zoom", zoomed);
 
   const width = 975;
   const height = 610;
 
+  // svg main container with the map
   const svg = d3
     .select("svg")
     .attr("viewBox", [0, 0, width, height])
     .on("click", reset);
 
+  // projection is the way of showing the map
   const g = svg.append("g");
   const projection = d3.geoMercator().scale(6000).center([5.916667, 52.47]);
   const pathGenerator = path.projection(projection);
 
-  const gemeentes = g
+  // The dutch map is getting splitt in Areas
+  const area = g
     .append("g")
     .attr("fill", "#444")
     .attr("cursor", "pointer")
@@ -26,12 +33,11 @@ export const zoommFunction = nlData().then((data) => {
     .on("click", clicked)
     .attr("d", path);
 
-  gemeentes.append("title").text((d) => d.properties.statname);
-
   svg.call(zoom);
 
+  // this function reset the zoom function and change the color back to normal
   function reset() {
-    gemeentes.transition().style("fill", null);
+    area.transition().style("fill", null);
     svg
       .transition()
       .duration(750)
@@ -42,10 +48,12 @@ export const zoommFunction = nlData().then((data) => {
       );
   }
 
+  // When clicked on an "area" this function will zoom on that speciffic are
+  // source: https://observablehq.com/@d3/zoom-to-bounding-box
   function clicked(event, d) {
     const [[x0, y0], [x1, y1]] = path.bounds(d);
     event.stopPropagation();
-    gemeentes.transition().style("fill", null);
+    area.transition().style("fill", null);
     d3.select(this).transition().style("fill", "#2e5f74");
     svg
       .transition()
@@ -62,6 +70,7 @@ export const zoommFunction = nlData().then((data) => {
       );
   }
 
+  // source: https://observablehq.com/@d3/zoom-to-bounding-box
   function zoomed(event) {
     const { transform } = event;
 
