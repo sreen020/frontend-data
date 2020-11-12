@@ -77,13 +77,15 @@ export function showSellingpoint(data) {
 
     // The array above get filled with all years
     data.forEach(element => {
-      arrayWithAllYears.push(element.startdatesellingpoint.slice(0, 4));
+      arrayWithAllYears.push(element.startdatesellingpoint ? element.startdatesellingpoint.slice(0, 4) : null);
     });
 
     // filter out the unique values
     // source: https://stackoverflow.com/questions/1960473/get-all-unique-values-in-a-javascript-array-remove-duplicates
     const makeArrUnique = (value, index, self) => {
-      return self.indexOf(value) === index
+      if (value != null) {
+        return self.indexOf(value) === index
+      }
     }
 
     // Use the func above to filter out all the unique years and order from low to high (ascending)
@@ -114,7 +116,7 @@ export function showSellingpoint(data) {
 
     // i = the year being clicked. this function changes the point on the map for the chosen year
     function changeYear(i) {
-      const filteredYear = data.filter(row => row.startdatesellingpoint.slice(0, 4) == i)
+      const filteredYear = data.filter(row => row.startdatesellingpoint ? row.startdatesellingpoint.slice(0, 4) == i : null)
       setPoints(filteredYear);
     }
 

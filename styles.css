@@ -83,10 +83,17 @@ input:checked + label{
   color: #1e2539;
 }
 
+aside section h2 {
+  font-family: 'Roboto', sans-serif;
+  color: #ececec;
+  margin-top: 3rem;
+  font-size: 1.3rem;
+}
+
 form {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 3rem;
+  margin-top: 1.5rem;
   padding-bottom: 1rem;
 }
 

@@ -5,8 +5,8 @@ import { zoomFunction } from "./modules/mapAndZoom.js";
 import { showSellingpoint } from "./modules/sellingpoint.js";
 
 // Fetching RDW Data
-// const endPoint = "https://opendata.rdw.nl/resource/cgqw-pfbp.json?$limit=100000";
-const endPoint = "https://opendata.rdw.nl/resource/cgqw-pfbp.json?$limit=3000";
+const endPoint = "https://opendata.rdw.nl/resource/cgqw-pfbp.json?$limit=100000";
+// const endPoint = "https://opendata.rdw.nl/resource/cgqw-pfbp.json?$limit=3000";
 getData(endPoint);
 
 // Makes the connection with the api endpoint
